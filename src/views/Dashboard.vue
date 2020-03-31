@@ -130,10 +130,10 @@ export default {
 }
 
 .v-chip.v-chip--no-color.overdue {
-  background: #ffaa2c;
+  background: tomato;
 }
 
 .v-chip.v-chip--no-color.ongoing {
-  background: #f83e70;
+  background: orange;
 }
 </style>
