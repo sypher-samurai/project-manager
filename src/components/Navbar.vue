@@ -16,6 +16,18 @@
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app class="indigo">
+
+<v-layout column align-center>
+<v-flex class="mt-5 mb-5">
+  <v-avatar size="100">
+    <img src="../assets/avartar-5.png" alt="">
+  </v-avatar>
+  <p class="white--text subheading mt-1">sypher samurai</p>
+</v-flex>
+</v-layout>
+
+
+
       <v-list>
         <v-list-item
           v-for="link in links"
