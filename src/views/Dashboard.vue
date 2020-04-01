@@ -1,17 +1,72 @@
 <template>
-  <v-expansion-panels>
-    <v-expansion-panel
-      v-for="(item,i) in 5"
-      :key="i"
-      flat
-    >
-      <v-expansion-panel-header>Item</v-expansion-panel-header>
-      <v-expansion-panel-content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-  </v-expansion-panels>
+  <div>
+    <h1 class="subheading grey--text">Dashboard</h1>
+
+    <v-container class="my-5">
+      <v-layout row class="mb-5">
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+             <v-btn text small  color="grey" v-on="on" v-on:click="sortBy('title')">
+          <v-icon left small>folder</v-icon>
+          <span class="caption text-lowercase">By project name</span>
+        </v-btn>
+          </template>
+          <span>sort project by project name</span>
+        </v-tooltip>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn text small color="grey" v-on='on' class="ml-3" v-on:click="sortBy('person')">
+          <v-icon left small>person</v-icon>
+          <span class="caption text-lowercase">By person</span>
+        </v-btn>
+          </template>
+          <span>sort project by person </span>
+        </v-tooltip>
+       
+      
+      </v-layout>
+      <v-card text v-for="project in projects" :key="project.title">
+        <v-layout row wrap :class="`pa-3 project ${project.status}`">
+          <v-flex xs12 md6 class="px-2">
+            <div class="caption grey--text">Project title</div>
+            <div>{{ project.title }}</div>
+          </v-flex>
+          <v-flex xs6 sm4 md2>
+            <div class="caption grey--text">person</div>
+            <div>{{ project.person }}</div>
+          </v-flex>
+          <v-flex xs6 sm4 md2>
+            <div class="caption grey--text">Due by</div>
+            <div>{{ project.due }}</div>
+          </v-flex>
+          <v-flex xs2 sm4 md2>
+            <div class="right">
+              <v-chip
+                small
+                :class="`${project.status} white--text caption my-2`"
+              >{{ project.status }}</v-chip>
+            </div>
+          </v-flex>
+        </v-layout>
+      </v-card>
+    </v-container>
+  </div>
 </template>
+
 <script>
 export default {
   data() {
