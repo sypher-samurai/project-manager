@@ -11,16 +11,12 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
-<template>
+
   <div class="text-center">
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
-        <v-btn
-          color="primary"
-          dark
-          v-on="on"
-        >
-          Dropdown
+        <v-btn v-on="on">
+          fgfggfgfgfgf
         </v-btn>
       </template>
       <v-list>
@@ -34,7 +30,7 @@
       </v-list>
     </v-menu>
   </div>
-</template>
+
      
       <v-btn text class="grey">
         <span>Sign Out</span>
