@@ -1,23 +1,18 @@
 <template>
   <div class="projects">
     <v-expansion-panels class="my-5">
-      <v-expansion-panel v-for="(item, i) in 4" :key="i" class="mb-5">
+      <v-expansion-panel v-for="project in myProjects" :key="project.content" class="mb-5">
         <v-expansion-panel-header color="grey lighten-4"
-          >Project title</v-expansion-panel-header
+          >{{project.title}}</v-expansion-panel-header
         >
         <v-expansion-panel-content>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          {{project.content}}
         </v-expansion-panel-content>
         <v-card class="px-4 white--text " color="#3f51b5" flat text>
           <v-card-title>
-            <div class="font-weight-bold">due by xx.xx.xx</div>
+            <div class="font-weight-bold">due by {{project.due}}</div>
 
-            <v-flex md12 class="font-weight-bold">
-              <div>info</div>
-            </v-flex>
+          
           </v-card-title>
         </v-card>
       </v-expansion-panel>
@@ -31,11 +26,19 @@ export default {
       projects: [
         {
           title: "Design a website",
-          person: "The net Ninja",
+          person: "sypher-samurai",
           due: "1st Jan 2020",
           status: "ongoing",
           content:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu mauris vitae nunc blandit pulvinar ac et risus. Vestibulum ultricies et odio eget gravida. Vestibulum ut porttitor leo. Suspendisse potenti. Sed aliquam odio neque, in sollicitudin justo posuere eget. Morbi molestie nec dolor id dignissim. Pellentesque rhoncus maximus neque id dictum. Praesent lacinia tincidunt tellus, tristique laoreet arcu pellentesque non. Morbi vel nulla eleifend, accumsan sem eget, efficitur ex. Donec at vehicula dolor, at lobortis justo. Nunc vel interdum turpis. Ut malesuada augue vel tellus lacinia, eget feugiat dolor viverra. Pellentesque tellus elit, volutpat eget dolor at, rhoncus condimentum nisi. Ut et libero diam. Ut posuere dolor pharetra iaculis mollis. Curabitur ut eros ultrices, pulvinar nunc et, elementum quam."
+        },
+        {
+          title: "Design a website ..again",
+          person: "sypher-samurai",
+          due: "1st Jan 2020",
+          status: "ongoing",
+          content:
+            "Lorem ipsum "
         },
         {
           title: "code up to homepage",
@@ -63,7 +66,16 @@ export default {
         }
       ]
     };
+  },
+  computed:{
+    myProjects(){
+      return  this.projects.filter(project => {
+        return project.person === "sypher-samurai"
+      })
+      
+    }
   }
+  
 };
 </script>
 

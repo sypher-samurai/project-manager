@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar app flat>
+    <v-app-bar app text>
       <v-app-bar-nav-icon
         class="grey--text"
         @click="drawer = !drawer"
@@ -10,28 +10,51 @@
         <span class="font-weight-900">Ninja</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+
+<template>
+  <div class="text-center">
+    <v-menu offset-y>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          color="primary"
+          dark
+          v-on="on"
+        >
+          Dropdown
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+          
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </div>
+</template>
+     
       <v-btn text class="grey">
         <span>Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app class="indigo">
-
-<v-layout column align-center>
-<v-flex class="mt-5 mb-5">
-  <v-avatar size="100">
-    <img src="../assets/avartar-5.png" alt="">
-  </v-avatar>
-  <p class="white--text subheading mt-1">sypher samurai</p>
-</v-flex>
-</v-layout>
-
-
+      <v-layout column align-center>
+        <v-flex class="mt-5 mb-5">
+          <v-avatar size="100">
+            <img src="../assets/avartar-5.png" alt="" />
+          </v-avatar>
+          <p class="white--text subheading mt-1">sypher samurai</p>
+        </v-flex>
+      </v-layout>
 
       <v-list>
         <v-list-item
           v-for="link in links"
-          :key="link.text"
+          :key="link.icon"
           v-bind:to="link.href"
         >
           <v-list-item-action>
@@ -56,6 +79,12 @@ export default {
         { icon: "dashboard", text: "Dashboard", href: "/" },
         { icon: "folder", text: "My Projects", href: "/projects" },
         { icon: "person", text: "Team", href: "/team" }
+      ],
+      items: [
+        { title: "Click Me" },
+        { title: "Click Me" },
+        { title: "Click Me" },
+        { title: "Click Me 2" }
       ]
     };
   }

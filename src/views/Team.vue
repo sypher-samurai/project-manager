@@ -4,7 +4,7 @@
 
     <v-container class="my-5">
       <v-layout row>
-        <v-flex xs12 sm6 md3  v-for="team in teams" :key="team.name">
+        <v-flex xs12 sm6 md3 v-for="team in teams" :key="team.name">
           <v-card flat="" class="text-center ma-3">
             <v-responsive class="pt-4">
               <v-avatar>
@@ -15,19 +15,19 @@
               <div class="subheading">{{ team.name }}</div>
               <div class="grey--text">{{ team.role }}</div>
             </v-card-text>
-            
-              <v-card-actions>
-                <v-flex justify-center>
+
+            <v-card-actions>
+              <v-flex justify-center>
                 <v-btn text="" color="gray">
                   <v-icon small="" left>message</v-icon>
                   <span>message</span>
                 </v-btn>
               </v-flex>
-              </v-card-actions>
-            
+            </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
+    
     </v-container>
   </div>
 </template>
