@@ -1,22 +1,28 @@
 <template>
-  <v-expansion-panels>
-    <v-expansion-panel
-      v-for="(item,i) in 5"
-      :key="i"
-    >
-      <v-expansion-panel-header>Project</v-expansion-panel-header>
-      <v-expansion-panel-content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-    <v-container class="my-5">
-      <v-expansion-panel>
+  <div class="projects">
+    <v-expansion-panels class="my-5">
+      <v-expansion-panel v-for="(item, i) in 4" :key="i" class="mb-5">
+        <v-expansion-panel-header color="grey lighten-4"
+          >Project title</v-expansion-panel-header
+        >
         <v-expansion-panel-content>
-          <div slot="header">Utem</div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </v-expansion-panel-content>
+        <v-card class="px-4 white--text " color="#3f51b5" flat text>
+          <v-card-title>
+            <div class="font-weight-bold">due by xx.xx.xx</div>
+
+            <v-flex md12 class="font-weight-bold">
+              <div>info</div>
+            </v-flex>
+          </v-card-title>
+        </v-card>
       </v-expansion-panel>
-    </v-container>
-  </v-expansion-panels>
+    </v-expansion-panels>
+  </div>
 </template>
 <script>
 export default {
