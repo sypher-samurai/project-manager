@@ -6,38 +6,36 @@
       <v-layout row class="mb-5">
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-             <v-btn text small  color="grey" v-on="on" v-on:click="sortBy('title')">
-          <v-icon left small>folder</v-icon>
-          <span class="caption text-lowercase">By project name</span>
-        </v-btn>
+            <v-btn
+              text
+              small
+              color="grey"
+              v-on="on"
+              v-on:click="sortBy('title')"
+            >
+              <v-icon left small>folder</v-icon>
+              <span class="caption text-lowercase">By project name</span>
+            </v-btn>
           </template>
           <span>sort project by project name</span>
         </v-tooltip>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-            <v-btn text small color="grey" v-on='on' class="ml-3" v-on:click="sortBy('person')">
-          <v-icon left small>person</v-icon>
-          <span class="caption text-lowercase">By person</span>
-        </v-btn>
+            <v-btn
+              text
+              small
+              color="grey"
+              v-on="on"
+              class="ml-3"
+              v-on:click="sortBy('person')"
+            >
+              <v-icon left small>person</v-icon>
+              <span class="caption text-lowercase">By person</span>
+            </v-btn>
           </template>
           <span>sort project by person </span>
         </v-tooltip>
-       
-      
       </v-layout>
       <v-card text v-for="project in projects" :key="project.title">
         <v-layout row wrap :class="`pa-3 project ${project.status}`">
@@ -58,7 +56,8 @@
               <v-chip
                 small
                 :class="`${project.status} white--text caption my-2`"
-              >{{ project.status }}</v-chip>
+                >{{ project.status }}</v-chip
+              >
             </div>
           </v-flex>
         </v-layout>
