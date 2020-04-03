@@ -11,27 +11,35 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
+      <div class="text-center">
+        <v-menu offset-y class="mr-5">
+          <template v-slot:activator="{ on }">
+            <v-btn
+              v-on="on"
+              slot="activator"
+              color="grey"
+              class="mr-5"
+              @click="icon = !icon"
+            >
+              <v-icon left>{{ icon }}</v-icon>
 
-  <div class="text-center">
-    <v-menu offset-y>
-      <template v-slot:activator="{ on }">
-        <v-btn v-on="on">
-          fgfggfgfgfgf
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item
-          v-for="(item, index) in items"
-          :key="index"
-          
-        >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-  </div>
+              <span class="text-uppercase">menu</span>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="link in links"
+              :key="link.route"
+              router
+              :to="link.href"
+              class="indigo--text"
+            >
+              <v-list-item-title>{{ link.text }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
 
-     
       <v-btn text class="grey">
         <span>Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
@@ -70,6 +78,9 @@
 export default {
   data() {
     return {
+      icon:true,
+      // icon: "expand_more",
+      // icons: "expand_less",
       drawer: false,
       links: [
         { icon: "dashboard", text: "Dashboard", href: "/" },
@@ -83,6 +94,16 @@ export default {
         { title: "Click Me 2" }
       ]
     };
+  },
+methods:{
+  iconUpdate(){
+     if (this.icon === false) {
+      return this.icon = "expand_less";
+    }
+    if(this.icon === true){
+      return this.icon = "expand_more"
+    }
   }
+}
 };
 </script>
