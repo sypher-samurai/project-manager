@@ -11,26 +11,33 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
-      
-        <template>
-          <div class="text-xs-center">
-            <v-menu offset-y>
-              <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark v-on="on">
-                  Dropdown
-                </v-btn>
-              </template>
+      <div class="text-center">
+        <v-menu offset-y class="mr-5">
+          <template v-slot:activator="{ on }">
+            <v-btn
+              v-on="on"
+              slot="activator"
+              color="grey"
+              class="mr-5"
+              
+            >
+
+              <span class="text-uppercase">menu</span>
+            </v-btn>
+          </template>
           <v-list>
-        <v-list-tile
-       
-        >
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-            </v-menu>
-          </div>
-        </template>
-      
+            <v-list-item
+              v-for="link in links"
+              :key="link.route"
+              router
+              :to="link.href"
+              class="indigo--text"
+            >
+              <v-list-item-title>{{ link.text }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
 
       <v-btn text class="grey">
         <span>Sign Out</span>
@@ -70,7 +77,7 @@
 export default {
   data() {
     return {
-      icon: true,
+      
 
       drawer: false,
       links: [
