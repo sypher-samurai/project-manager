@@ -14,14 +14,7 @@
       <div class="text-center">
         <v-menu offset-y class="mr-5">
           <template v-slot:activator="{ on }">
-            <v-btn
-              v-on="on"
-              slot="activator"
-              color="grey"
-              class="mr-5"
-              
-            >
-
+            <v-btn v-on="on" slot="activator" color="grey" class="mr-5">
               <span class="text-uppercase">menu</span>
             </v-btn>
           </template>
@@ -52,6 +45,9 @@
           </v-avatar>
           <p class="white--text subheading mt-1">sypher samurai</p>
         </v-flex>
+        <v-flex class="mb-3">
+          <popup/>
+        </v-flex>
       </v-layout>
 
       <v-list>
@@ -74,10 +70,11 @@
   </nav>
 </template>
 <script>
+import Popup from './Popup.vue'
 export default {
   data() {
     return {
-      
+
 
       drawer: false,
       links: [
@@ -93,5 +90,6 @@ export default {
       ],
     };
   },
-};
+  components: { Popup
+}}
 </script>
