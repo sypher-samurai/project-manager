@@ -14,6 +14,14 @@
               label="Title"
               required
             ></v-text-field>
+          
+          
+        <v-textarea
+          solo
+          name="input-7-4"
+          label="Solo textarea"
+        ></v-textarea>
+      
           </v-form>
         </v-card-text>
       </v-card>
