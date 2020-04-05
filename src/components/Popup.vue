@@ -16,9 +16,12 @@
               label="Information"
               prepend-icon="edit"
             ></v-textarea>
+
+          
             <v-btn class="success" @click="submit">
                 Add Project
             </v-btn>
+
           </v-form>
         </v-card-text>
       </v-card>
